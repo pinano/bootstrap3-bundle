@@ -1,0 +1,23 @@
+{
+    "name": "pinano/bootstrap3-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 bundle for wrapping Twitter Bootstrap 3",
+    "keywords": ["bootstrap", "bootstrap3", "bundle"],
+    "homepage": "http://github.com/pinano/bootstrap3-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fernando Arroyo",
+            "email": "farroyo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "2.*"
+    },
+    "autoload": {
+        "psr-0": { "Pinano\\Bootstrap3Bundle": "" }
+    },
+    "minimum-stability": "stable",
+    "target-dir": "Pinano/Bootstrap3Bundle"
+}
