@@ -113,7 +113,7 @@ If you want to create your own LESS mix-ins or variables, you should import Boot
       'bundles/pinanobootstrap3/less/bootstrap.less'
       'bundles/pinanobootstrap3/less/theme.less'
       ...
-      'bundles/yourawesomebundle/less/awesomestylesheet.less
+      'bundles/yourawesomebundle/less/awesomestylesheet.less'
       ...
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
