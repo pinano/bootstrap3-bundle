@@ -93,8 +93,12 @@ Note: The bootstrap-theme.css file is optional and is only intended to make Boot
 ``` twig
 {% block stylesheets %}
     {% stylesheets filter='cssrewrite'
+      ...
       'bundles/pinanobootstrap3/css/bootstrap.css'
       'bundles/pinanobootstrap3/css/bootstrap-theme.css'
+      ...
+      'bundles/yourawesomebundle/css/awesomestylesheet.css'
+      ...
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -104,10 +108,13 @@ Note: The bootstrap-theme.css file is optional and is only intended to make Boot
 If you want to create your own LESS mix-ins or variables, you should import Bootstrap 3 LESS files instead of the CSSs and create a css output using any of the LESS filters available ([lessphp](https://github.com/leafo/lessphp) or [nodejs](http://www.kiwwito.com/article/less-css-with-assetic-and-symfony-2) are the ones I know of):
 ``` twig
 {% block stylesheets %}
-    {% stylesheets filter='less'
+    {% stylesheets filter='cssrewrite,less'
+      ...
       'bundles/pinanobootstrap3/less/bootstrap.less'
       'bundles/pinanobootstrap3/less/theme.less'
+      ...
       'bundles/yourawesomebundle/less/awesomestylesheet.less
+      ...
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
