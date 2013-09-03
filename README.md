@@ -123,7 +123,7 @@ If you want to create your own LESS mix-ins or variables, you should import Boot
 
 Note: See https://github.com/kriswallsmith/assetic/issues/53 for known limitations of assetic with CSS referencing.
 
-I usually follow a simple inheritance schema when it comes to designing twig templates. That is, I have an app/views/base.html.twig file that I use as a site-wide template. Then, inside every bundle I have my own Resources/views/layout.html.twig file that extends the base template. Depending on the kind of application I'm designing I can place the Bootstrap stuff in the site-wide or the bundle-wide template. Then every view of a given bundle will extend the corresponding bundle layout.html.twig file, which in turn extends the site-wide template.
+I usually follow a simple inheritance schema when it comes to designing twig templates. That is, I have an app/Resources/views/base.html.twig file that I use as a site-wide template. Then, inside every bundle I have my own Resources/views/layout.html.twig file that extends the base template. Depending on the kind of application I'm designing I can place the Bootstrap stuff in the site-wide or the bundle-wide template. Then every view of a given bundle will extend the corresponding bundle layout.html.twig file, which in turn extends the site-wide template.
 
 The folks at Sensio Labs have already covered this approach and you can check it in their [documentation](http://twig.sensiolabs.org/doc/templates.html#template-inheritance).
 
