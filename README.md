@@ -67,15 +67,15 @@ Optionally, use the --symlink attribute to create links rather than copies of th
 $ php app/console assets:install --symlink web
 ```
 
-Notes: All the urls of the original routes have been changed to '../images/*' due to Bundle package requirements.
-
 ## Usage
 
-Once you have imported all the resources to the vendor folder, you can self-import the JS into your Symfony project as usual with:
+Once all the resources are in place, if you want to use the Bootstrap 3 javascript features (modals, dropdowns, etc.) you can edit any of your twig views or layouts to include the Bootstrap3 javascript files. If you don't want to use any of these features you can skip this step. Please refer to the [Bootstrap 3 documentation](http://getbootstrap.com/javascript/) to see what features are available.
 
+Note: Bootstrap 3 javascript resources require that you have previously loaded jQuery library.
 
 ``` twig
 {% block javascripts %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     {% javascripts
         ...
         '@PinanoBootstrap3Bundle/Resources/public/js/bootstrap.js'
@@ -86,7 +86,10 @@ Once you have imported all the resources to the vendor folder, you can self-impo
 {% endblock %}
 ```
 
-And with the CSS as well using with:
+Then you will want to load the css resources to take advantage of the grid and all the responsive utilities.
+
+Note: The bootstrap-theme.css file is optional and is only intended to make Bootstrap 3 look nice out-of-the-box..
+
 ``` twig
 {% block stylesheets %}
     {% stylesheets filter='cssrewrite'
@@ -97,7 +100,25 @@ And with the CSS as well using with:
     {% endstylesheets %}
 {% endblock %}
 ```
+
+If you want to create your own LESS mix-ins or variables, you should import Bootstrap 3 LESS files instead of the CSSs and create a css output using any of the LESS filters available ([lessphp](https://github.com/leafo/lessphp) or nodejs are the ones I know of):
+``` twig
+{% block stylesheets %}
+    {% stylesheets filter='less'
+      'bundles/pinanobootstrap3/less/bootstrap.less'
+      'bundles/pinanobootstrap3/less/theme.less'
+      'bundles/yourawesomebundle/less/awesomestylesheet.less
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+```
+
 Note: See https://github.com/kriswallsmith/assetic/issues/53 for known limitations of assetic with CSS referencing.
+
+I usually follow a simple inheritance schema when it comes to designing twig templates. That is, I have an app/views/base.html.twig file that I use as a site-wide template. Then, inside every bundle I have my own Resources/views/layout.html.twig file that extends the previous one. Depending on the kind of application I'm designing I can place the Bootstrap stuff in the site-wide or the bundle-wide template. Then every view of a given bundle will extend the bundle template file, which in turn extends the site-wide template.
+
+The folks at Sensio Labs have already covered this approach and you can check it in their [documentation](http://twig.sensiolabs.org/doc/templates.html#template-inheritance).
 
 ## Licenses
 
