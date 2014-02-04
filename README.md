@@ -2,7 +2,7 @@
 
 ## Current Version
 
-Bootstrap 3.0.3
+Bootstrap 3.1.0
 
 ## Installation
 
@@ -27,7 +27,7 @@ Bootstrap 3.0.3
 {
     "require": {
         // ...
-        "pinano/bootstrap3-bundle": "3.0.3"
+        "pinano/bootstrap3-bundle": "3.1.0"
     }
 }
 ```
