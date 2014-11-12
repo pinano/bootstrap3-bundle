@@ -2,7 +2,7 @@
 
 ## Current Version
 
-Bootstrap 3.1.0
+Bootstrap 3.3.0
 
 ## Installation
 
@@ -27,7 +27,7 @@ Bootstrap 3.1.0
 {
     "require": {
         // ...
-        "pinano/bootstrap3-bundle": "3.1.0"
+        "pinano/bootstrap3-bundle": "3.3.0"
     }
 }
 ```
@@ -105,15 +105,15 @@ Note: The bootstrap-theme.css file is optional and is only intended to make Boot
 {% endblock %}
 ```
 
-If you want to create your own LESS mix-ins or variables, you should import Bootstrap 3 LESS files instead of the CSSs and create a css output using any of the LESS filters available ([lessphp](https://github.com/leafo/lessphp) or [nodejs](http://www.kiwwito.com/article/less-css-with-assetic-and-symfony-2) are the ones I know of):
+If you want to create your own SCSS mix-ins or variables, you should import Bootstrap 3 SCSS files instead of the CSSs and create a css output using any of the SCSS filters available for assetic:
 ``` twig
 {% block stylesheets %}
-    {% stylesheets filter='cssrewrite,less'
+    {% stylesheets filter='cssrewrite,scss'
       ...
-      'bundles/pinanobootstrap3/less/bootstrap.less'
-      'bundles/pinanobootstrap3/less/theme.less'
+      'bundles/pinanobootstrap3/scss/_bootstrap.scss'
+      'bundles/pinanobootstrap3/scss/bootstrap/_theme.scss'
       ...
-      'bundles/yourawesomebundle/less/awesomestylesheet.less'
+      'bundles/yourawesomebundle/scss/awesomestylesheet.scss'
       ...
     %}
         <link rel="stylesheet" href="{{ asset_url }}" />
