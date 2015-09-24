@@ -3,7 +3,6 @@
 ## 3.3.5
 
 * Updated Bootstrap 3.3.5
-* went to less over sass
 
 ## 3.3.0
 
